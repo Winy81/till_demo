@@ -4,11 +4,10 @@ module PricingRule
   class BulkDiscountRule < BaseRule
 
     def apply(items)
-      # TODO: Make config-able
-      product_code = 'SR1'
-      minimum_quantity_for_discount = 3
-      discounted_price_per_item = 4.50
-      #
+      product_code = rule_config['product_code']
+      minimum_quantity_for_discount = rule_config['minimum_quantity_for_discount']
+      discounted_price_per_item = rule_config['discounted_price_per_item']
+      
       matching_items = select_items(items, product_code)
       quantity = matching_items.size
 

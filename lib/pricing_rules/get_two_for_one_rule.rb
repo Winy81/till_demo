@@ -4,9 +4,8 @@ module PricingRule
   class GetTwoForOneRule < BaseRule
 
     def apply(items)
-      #TODO Make config-able
-      product_code = 'GR1'
-      #
+      product_code = rule_config['product_code']
+
       matching_items = select_items(items, product_code)
       return { discount: 0 } if matching_items.empty?
 

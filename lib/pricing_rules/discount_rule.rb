@@ -4,11 +4,9 @@ module PricingRule
   class DiscountRule < BaseRule
 
     def apply(items)
-      # TODO: Make config-able
-      product_code = 'CF1'
-      minimum_quantity_for_discount = 3
-      #
-      discount_factor = 2.0 / 3.0
+      product_code = rule_config['product_code']
+      minimum_quantity_for_discount = rule_config['minimum_quantity_for_discount']
+      discount_factor = rule_config['discount_factor']
 
       matching_items = select_items(items, product_code)
       quantity = matching_items.size
