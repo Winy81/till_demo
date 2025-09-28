@@ -1,20 +1,17 @@
-class Item
+require 'yaml'
 
+class Item
   attr_reader :code, :name, :price
-  #TODO find better solution
-  PRODUCTS = 
-  {
-    'GR1' => { name: 'Green tea', price: 3.11 },
-    'SR1' => { name: 'Strawberries', price: 5.00 },
-    'CF1' => { name: 'Coffee', price: 11.23 }
-  }
-  #
+
+  CONFIG_PATH = File.expand_path('../../config/products.yml', __FILE__)
+  PRODUCTS = YAML.load_file(CONFIG_PATH)
+
   def initialize(code)
     product = PRODUCTS[code]
     raise ArgumentError, "Invalid product code: #{code}" unless product
 
     @code = code
-    @name = product[:name]
-    @price = product[:price]
+    @name = product['name']
+    @price = product['price']
   end
 end

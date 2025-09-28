@@ -1,3 +1,5 @@
+require 'yaml'
+
 module PricingRule
   class BaseRule
 
@@ -8,7 +10,8 @@ module PricingRule
     end
 
     def apply(items)
-      0
+      puts "[WARNING] #{self.class.name}#apply called directly. No implementation warning"
+      { discount: 0 }
     end
 
     private
