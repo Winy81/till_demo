@@ -2,7 +2,7 @@ require_relative 'spec_helper'
 
 RSpec.describe Checkout do
 
-  let(:pricing_rules) { [ PricingRule::GetTwoForOneRule.new() ] }
+  let(:pricing_rules) { [ PricingRule::GetTwoForOneRule.new(), PricingRule::DiscountRule.new() ] }
 
   it 'calculates total for basket GR1,SR1,GR1,GR1,CF1' do
     co = Checkout.new(pricing_rules)
@@ -25,7 +25,7 @@ RSpec.describe Checkout do
   it 'calculates total for basket GR1,CF1,SR1,CF1,CF1' do
     co = Checkout.new(pricing_rules)
     %w[GR1 CF1 SR1 CF1 CF1].each { |code| co.scan(code) }
-    expect(co.total).to eq(41.8)
+    expect(co.total).to eq(30.57)
   end
 
 end
