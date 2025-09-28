@@ -1,35 +1,34 @@
-
-# Till demo project 
+# Till Demo Project
 
 A simple Ruby checkout system with configurable pricing rules.
 
+## Installation
 
-## Instalization
-
+```bash
 git clone https://github.com/Winy81/till_demo.git
 cd till_demo
 bundle install
+Required Configs
+config/pricing_rules.yml
 
+config/enabled_pricing_rules.yml
 
-## Required configs
+config/products.yml
 
-pricing_rules.yml
-enabled_pricing_rules.yml
-products.yml
+Usage
 
-
-## Usage
-
-Script run:
-
+Run Script
+bash
+Copy code
 chmod +x bin/run_checkout.rb
 bin/run_checkout.rb
-or 
-ruby bin/run_checkout.rb 
 
+or
 
-Terminal run (as requested):
-
+ruby bin/run_checkout.rb
+Terminal Run (As Requested)
+ruby
+Copy code
 require_relative 'lib/checkout'
 require_relative 'lib/item'
 require_relative 'lib/pricing_rules/base_rule'
@@ -51,16 +50,15 @@ co.scan('GR1')
 co.scan('CF1')
 puts co.total
 
-
-Example output:
+Example Output
 
 Active discount rules: GetTwoForOneRule, BulkDiscountRule, DiscountRule
 Scanned basket: GR1, SR1, GR1, GR1, CF1
 Total: £22.45
 
-
-## Run Tests
-
+Run Tests
+bash
+Copy code
 rspec
 
 
