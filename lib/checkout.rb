@@ -12,6 +12,14 @@ class Checkout
   end
 
   def total
-    @items.sum(&:price).round(2) || nil
+    base_total = @items.sum(&:price) || 0
+    total_discount = 0
+
+    @pricing_rules.each do |rule|
+      result = rule.apply(@items)
+      total_discount += result[:discount]
+    end
+
+    final_price = (base_total - total_discount).round(2)
   end
 end
