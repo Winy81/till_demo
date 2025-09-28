@@ -1,0 +1,3 @@
+PricingRule::GetTwoForOneRule: true
+PricingRule::BulkDiscountRule: true
+PricingRule::DiscountRule: true
