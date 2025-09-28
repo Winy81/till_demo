@@ -18,7 +18,7 @@ enabled_pricing_rules.yml
 products.yml
 
 
-### Usage
+## Usage
 
 Script run:
 
@@ -59,7 +59,7 @@ Scanned basket: GR1, SR1, GR1, GR1, CF1
 Total: £22.45
 
 
-#### Run Tests
+## Run Tests
 
 rspec
 
